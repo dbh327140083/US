@@ -1,10 +1,10 @@
 proxies:
   - name: "SS-US-Server"
     type: ss
-    server: '47.251.79.47'   #改ip
+    server: '47.251.79.47'
     port: 8388
-    cipher: chacha20-ietf-poly1305 # 这个改成 config.json 中method的地址
-    password: "cBxlNS9OUWVk"  # 这个改成 config.json 中password的密码
+    cipher: chacha20-ietf-poly1305
+    password: "cBxlNS9OUWVk"
     udp: true
 
 proxy-groups:
@@ -16,6 +16,5 @@ proxy-groups:
 rules:
   - DOMAIN-SUFFIX,google.com,PROXY
   - DOMAIN-SUFFIX,youtube.com,PROXY
-  - DOMAIN-SUFFIX,github.com,PROXY
-  - GEOIP,CN,DIRECT
+  - GEOIP,CN,DIRECT   # 这样可以减少国内流量走代理，提升速度
   - MATCH,PROXY
