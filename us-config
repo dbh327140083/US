@@ -1,20 +1,20 @@
 proxies:
   - name: "SS-US-Server"
     type: ss
-    server: '47.251.79.47'
-    port: 8388
-    cipher: aes-128-gcm
-    password: "7SFvLILjVmLS"
-    udp: true
+    server: '47.251.79.47'   # 替换为你的 Shadowsocks 服务器 IP 地址
+    port: 8388               # 与 Shadowsocks 配置一致
+    cipher: chacha20-ietf-poly1305  # 与 Shadowsocks 配置一致
+    password: "75FvLlLjYmLS"  # 与 Shadowsocks 配置一致
+    udp: true                # 启用 UDP
 
 proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - "SS-US-Server"
+      - "SS-US-Server"      # 设置代理组，只有一个代理节点
 
 rules:
-  - DOMAIN-SUFFIX,google.com,PROXY
-  - DOMAIN-SUFFIX,youtube.com,PROXY
-  - GEOIP,CN,DIRECT   # 这样可以减少国内流量走代理，提升速度
-  - MATCH,PROXY
+  - DOMAIN-SUFFIX,google.com,PROXY    # 通过代理访问 google.com
+  - DOMAIN-SUFFIX,youtube.com,PROXY  # 通过代理访问 youtube.com
+  - GEOIP,CN,DIRECT                  # 中国的流量不走代理，直连
+  - MATCH,PROXY                      # 其他流量默认走代理
