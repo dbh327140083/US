@@ -1,11 +1,11 @@
 proxies:
   - name: "SS-US-Server"
     type: ss
-    server: '47.251.79.47'   # 替换为你的 Shadowsocks 服务器 IP 地址
-    port: 8388               # 与 Shadowsocks 配置一致
-    cipher: chacha20-ietf-poly1305  # 与 Shadowsocks 配置一致
-    password: "75FvLlLjYmLS"  # 与 Shadowsocks 配置一致
-    udp: true                # 启用 UDP
+    server: '47.251.79.47'                # 替换为你的 Shadowsocks 服务器 IP 地址
+    port: 8388                                   # 与 Shadowsocks 配置一致
+    cipher: chacha20-ietf-poly1305                     # 与 Shadowsocks 配置一致
+    password: "75FvLlLjYmLS"                # 与 Shadowsocks 配置一致
+    udp: true                               # 启用 UDP
 
 proxy-groups:
   - name: "PROXY"
