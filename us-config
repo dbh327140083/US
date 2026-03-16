@@ -1,20 +1,23 @@
 proxies:
-  - name: "SS-US-Server"
-    type: ss
-    server: '47.251.79.47'    
-    port: 8388              
-    cipher: chacha20-ietf-poly1305  
-    password: "P78I9lrIxS7i"   
-    udp: true                  
+  - name: "V2Ray-US-Server"
+    type: vmess
+    server: '47.251.79.47'        # 服务器的公网 IP
+    port: 443                     # 端口，TLS 使用 443
+    uuid: "aaa4d6f7-36f2-43d4-9d45-faab8baaf602"  # 从服务器配置中获取的 UUID
+    alterId: 64                   # V2Ray 配置的 alterId
+    cipher: "auto"                # V2Ray 使用的加密方式
+    tls: true                     # 启用 TLS
+    network: "tcp"                # 传输协议，使用 TCP
+    udp: true                     # 启用 UDP
 
 proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - "SS-US-Server"        
+      - "V2Ray-US-Server"         # 使用的 V2Ray 代理服务器
 
 rules:
-  - DOMAIN-SUFFIX,google.com,PROXY    
-  - DOMAIN-SUFFIX,youtube.com,PROXY  
-  - GEOIP,CN,DIRECT                  
-  - MATCH,PROXY                     
+  - DOMAIN-SUFFIX,google.com,PROXY   # google.com 走代理
+  - DOMAIN-SUFFIX,youtube.com,PROXY  # youtube.com 走代理
+  - GEOIP,CN,DIRECT                 # 中国 IP 走直连
+  - MATCH,PROXY                     # 默认走代理
